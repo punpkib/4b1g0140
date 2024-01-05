@@ -1,44 +1,39 @@
-class Library:
-    def __init__(self, name, location, books):
-        self.name = name
-        self.location = location
-        self.books = books
+class 電影:
+    def __init__(self, 標題, 類型, 上映年份):
+        self.標題 = 標題
+        self.類型 = 類型
+        self.上映年份 = 上映年份
 
-    def display_library_info(self):
-        print(f"圖書館名稱: {self.name}")
-        print(f"地點: {self.location}")
-        print(f"書籍數量: {len(self.books)}")
-        print("-----------------------------")
+    def 顯示資訊(self):
+        print(f"標題：{self.標題}")
+        print(f"類型：{self.類型}")
+        print(f"上映年份：{self.上映年份}")
 
-    def add_book(self, book_title):
-        self.books.append(book_title)
-        print(f"書籍 '{book_title}' 已成功新增。")
+    def 播放預告片(self):
+        print(f"播放 {self.標題} 的預告片")
 
-    def borrow_book(self, book_title):
-        if book_title in self.books:
-            self.books.remove(book_title)
-            print(f"書籍 '{book_title}' 已成功借閱。")
-        else:
-            print(f"圖書館中沒有 '{book_title}' 這本書。")
+    def 取得年齡(self, 當前年份):
+        年齡 = 當前年份 - self.上映年份
+        return f"{self.標題} 已經上映 {年齡} 年了。"
 
-# 建立三個圖書館物件
-library1 = Library("城市圖書館", "市中心", ["書籍1", "書籍2", "書籍3"])
-library2 = Library("大學圖書館", "大學校園", ["書籍4", "書籍5", "書籍6"])
-library3 = Library("社區圖書館", "社區中心", ["書籍7", "書籍8", "書籍9"])
+# 建立三個物件
+電影1 = 電影("盜夢空間", "科幻", 2010)
+電影2 = 電影("黑暗騎士", "動作", 2008)
+電影3 = 電影("鐵達尼號", "愛情", 1997)
 
-# 呼叫副函式共9次
-library1.display_library_info()
-library1.add_book("新書")
-library1.borrow_book("書籍1")
-library1.display_library_info()
+# 呼叫
+電影1.顯示資訊()
+電影1.播放預告片()
+print(電影1.取得年齡(2024))
 
-library2.display_library_info()
-library2.add_book("另一本書")
-library2.borrow_book("書籍5")
-library2.display_library_info()
+print("\n")
 
-library3.display_library_info()
-library3.add_book("額外的書")
-library3.borrow_book("書籍9")
-library3.display_library_info()
+電影2.顯示資訊()
+電影2.播放預告片()
+print(電影2.取得年齡(2024))
 
+print("\n")
+
+電影3.顯示資訊()
+電影3.播放預告片()
+print(電影3.取得年齡(2024))
